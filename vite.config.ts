@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import AutoImport from 'unplugin-auto-import/vite';
 import * as path from 'path';
 
 // https://vitejs.dev/config/
@@ -10,7 +11,13 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src')
     }
   },
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    AutoImport({
+      imports: ['vue'],
+      dts: path.resolve(__dirname, 'src/types/auto-imports.d.ts')
+    })
+  ],
   server: {
     port: 8080, //启动端口
     hmr: {

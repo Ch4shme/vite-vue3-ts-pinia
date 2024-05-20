@@ -5,7 +5,6 @@
   <button @click="requestRes()"></button>
 </template>
 <script lang="ts">
-  import { defineComponent } from 'vue';
   import request from '@/utils/axios';
   import API from '@/api';
 
